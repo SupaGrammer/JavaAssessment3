@@ -59,9 +59,10 @@ public class ElementCollection extends ArrayList<Element> {
         //Im going to assume fieldname is any of the fields listed in the element class
         //and value represents the input for that specific elements field data
         ElementCollection periodicTable = new ElementCollection();
-        for (int i = 0; i < periodicTable.size(); i++){
+        //some kind of iterator goes here that loops through elements
+        //based on the field , if any elements hold a similar value it will
+        //it will locate that element within the table????
 
-        }
         return null;
     }
 }

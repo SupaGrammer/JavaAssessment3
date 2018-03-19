@@ -41,13 +41,17 @@ public class User {
     public boolean equals(Object obj) {
         return false;
     }
-
+    //I dont understand password import
+    public void setPassword(String password){
+        this.password = password;
+    }
+//
 //    public void setPassword(Password password) {
-//        this.password = password;
+//        this.password = new Password(password);
 //    }
 //
 //    public Password getPassword() {
-//        return this.password;
+//        return password;
 //    }
 
     public void setEmail(String email) {
