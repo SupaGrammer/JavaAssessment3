@@ -56,6 +56,12 @@ public class ElementCollection extends ArrayList<Element> {
     }
     //i really dont know wtf this method is supposed to do
     public ElementCollection where(String fieldName, Object value) {
+        //Im going to assume fieldname is any of the fields listed in the element class
+        //and value represents the input for that specific elements field data
+        ElementCollection periodicTable = new ElementCollection();
+        for (int i = 0; i < periodicTable.size(); i++){
+
+        }
         return null;
     }
 }
