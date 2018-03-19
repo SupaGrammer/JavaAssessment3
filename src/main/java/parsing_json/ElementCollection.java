@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
@@ -18,25 +19,29 @@ import java.util.regex.Pattern;
  * @TODO
  * This is a collection class for storing all the elements
  * Basically an in depth periodic table
+ * 1.)Create a lookup method to search the element by its atomic index number
+ * 2.)Create a lookup method to search the element by its name
+ * 3.)Create a locater(where) method to find all elements with similar fields
  */
 public class ElementCollection extends ArrayList<Element> {
-    ElementCollection location = new ElementCollection();
-    ArrayList<String> periodicTable = new ArrayList<>();
 
-    //method to find the element by its Atomic index
+    public ElementCollection() {
+    }
+
+    //method to find the element by its Atomic index number
     public Element findByAtomicNumber(int atomic_number) {
-        for (Element element : this){
-            if (element.getNumber() == atomic_number){
-                return element;
+        for (Element element : this){ //for each element within the table
+            if (element.getNumber() == atomic_number){ //if the outcome of my getter is equal to that of the element
+                return element; //then return the element
             }
         }
-        return null;
+        return null; //should never reach null as long as a valid element is called
     }
 
     //method to find the element by its name
     public Element findByName(String name) {
-        for (Element element : this){
-            if (element.getName().equals(name)){
+        for (Element element : this){ //searching by name instead of number now
+            if (element.getName().equalsIgnoreCase(name)){ //same as above method but ignoring the casing of element name
                 return element;
             }
         }
@@ -49,10 +54,9 @@ public class ElementCollection extends ArrayList<Element> {
         // return findByName(name);
         // }
     }
-    //method to find where
+    //i really dont know wtf this method is supposed to do
     public ElementCollection where(String fieldName, Object value) {
-
-        return location;
+        return null;
     }
 }
 //    private static ElementCollection elementCollection = new ElementCollection();

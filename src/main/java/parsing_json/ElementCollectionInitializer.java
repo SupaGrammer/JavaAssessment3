@@ -1,21 +1,30 @@
 package parsing_json;
 
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Arrays;
+
 
 /**
  * @TODO
  * The generate method in this class should load the JSON text (periodic_table.json) into
- * an ElementColletion
- * Then return the Collection
+ * an ElementColletion (my period table array)
+ * Then return the Collection (periodic table)
  */
 
 public class ElementCollectionInitializer {
-    public static ElementCollection generate() {
-
+    public static ElementCollection generate() throws FileNotFoundException {
+        Gson gson = new Gson();
+        JsonReader jsonReader = new JsonReader(new FileReader("/Users/kieranthomas/Dev/JavaAssessment3/src/main/resources/periodic_table.json"));
+        ElementCollection periodicTable = new ElementCollection();
+        Element[] table = gson.fromJson(jsonReader, Element[].class);
+        periodicTable.addAll(Arrays.asList(table));
+        return periodicTable;
+    }
+}
 //        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 //        File file = new File(classLoader.getResource(this.fileName).getFile());
 //        StringBuilder sb = new StringBuilder("");
@@ -29,6 +38,3 @@ public class ElementCollectionInitializer {
 //            e.printStackTrace();
 //        }
 //        return sb.toString();
-        return null;
-    }
-}
